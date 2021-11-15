@@ -23,10 +23,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/paises' , [PaisController::class, 'index']);
 Route::get('/países/{id}', [PaisController::class, 'show']);
 Route::post('/paises', [PaisController::class, 'store']);
-Route::put('/paises', [PaisController::class, 'update']);
-Route::delete('/paises', [PaisController::class, 'destroy']);
+Route::put('/paises/{id}', [PaisController::class, 'update']);
+Route::delete('/paises/{id}', [PaisController::class, 'destroy']);
 Route::get('/universidades', [UniversidadeController::class, 'Index']);
 Route::get('/universidades/{id}', [UniversidadeController::class, 'show']);
 Route::post('/universidades', [UniversidadeController::class,'store']);
-Route::put('/universidades', [UniversidadeController::class,'update']);
-Route::delete('/universidades', [UniversidadeController::class, 'destroy']);
+Route::put('/universidades/{id}', [UniversidadeController::class,'update']);
+Route::delete('/universidades/{id}', [UniversidadeController::class, 'destroy']);
