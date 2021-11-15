@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class PaisController extends Controller
 {
@@ -95,8 +97,10 @@ class PaisController extends Controller
 			return response()->json($updateData, 422);
 		}
 		
-		$universidade = Universidade::whereId($id)->update($request->all());
-		return response()->json($universidade);
+		$pais = Pais::whereId($id)->update([
+                   'nome' => $request->input('nome')
+          ]);
+          return response()->json($pais);     
         
     }
 
@@ -109,8 +113,8 @@ class PaisController extends Controller
     public function destroy($id)
 	
     {
-		$universidade = Universidade::findOrFail($id);
-		$universidade->delete();
+		$pais = Pais::findOrFail($id);
+		$pais->delete();
 		return response()->json(null, 204);
 		
         
